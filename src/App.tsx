@@ -3,7 +3,7 @@ import { useState } from 'react';
 import AppLayout from './components/AppLayout';
 import Search from './components/Search';
 import UserCardList from './components/UserCardList';
-
+import UserCard from './components/UserCard';
 import './App.css';
 
 function App() {
@@ -11,7 +11,9 @@ function App() {
   return (
     <AppLayout>
       <Search query={query} setQuery={setQuery} />
-      <UserCardList />
+      <UserCardList>
+        <UserCard />
+      </UserCardList>
     </AppLayout>
   );
 }
