@@ -1,3 +1,3 @@
-export default function UserCardList() {
-  return <div className='card-list'>UserCardList</div>;
+export default function UserCardList({ children }) {
+  return <div className='card-list'>{children}</div>;
 }

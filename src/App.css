@@ -15,7 +15,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--color-background);
-  /* padding: 2.4rem; */
+  padding: 4rem 5rem;
 }
 
 .app-layout {
@@ -26,21 +26,9 @@ body {
   margin: 0 auto;
 }
 
-.button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  right: 3rem;
-}
-
-.icon {
-  width: 1.4rem;
-  height: 1.4rem;
-}
+/* =========== SEARCH =========== */
 
 .search-container {
-  height: 7rem;
   position: sticky;
   top: 0;
   display: flex;
@@ -51,16 +39,77 @@ body {
 .search-bar {
   border: 1px solid var(--color-border);
   padding: 0.75rem 1.5rem;
+  margin-bottom: 2.4rem;
   font-size: 1.2rem;
   border-radius: 1.5rem;
   transition: all 0.3s;
   color: var(--color-text);
-  background-color: var(--color-primary-light);
+  flex-grow: 1;
+}
+
+.button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  right: 3rem;
+  top: -1.2rem;
+}
+
+.icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+/* =========== USER CARD LIST =========== */
+
+li {
+  list-style: none;
 }
 
 .card-list {
-  flex: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 1rem;
+}
+
+/* =========== USER CARD  =========== */
+
+.user-card {
+  width: 22.315rem;
+  height: 19.625rem;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 1.6rem;
+  text-align: left;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.user-card h2 {
+  margin-bottom: 1rem;
+}
+
+.user-info-item {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  align-items: center;
+}
+
+.user-info-item > span {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  /* align-self: center; */
+}
+
+.user-info-item > p {
+  font-size: 0.8rem;
+  line-height: 1.4rem;
+  color: var(--color-text-light);
+  padding-left: 1rem;
 }
