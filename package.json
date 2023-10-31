@@ -2,7 +2,8 @@
   "name": "test-globexit",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
+  "main": "server.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -10,8 +11,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fastify/cors": "^8.4.1",
+    "fastify": "^4.24.3",
+    "fastify-cors": "^6.0.2",
+    "fs": "^0.0.1-security",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "vite-node": "^0.34.6"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
