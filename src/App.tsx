@@ -1,13 +1,16 @@
-import './App.css';
-import AppLayout from './components/AppLayout';
+import { useState } from 'react';
 
-import SearchBar from './components/Search';
+import AppLayout from './components/AppLayout';
+import Search from './components/Search';
 import UserCardList from './components/UserCardList';
 
+import './App.css';
+
 function App() {
+  const [query, setQuery] = useState('');
   return (
     <AppLayout>
-      <SearchBar />
+      <Search query={query} setQuery={setQuery} />
       <UserCardList />
     </AppLayout>
   );
