@@ -20,13 +20,14 @@ export function useUsers() {
         }
 
         const data = await response.json();
+
         if (data.Response === 'False') throw new Error('Users not found');
 
         setUsers(data);
         setError('');
       } catch (error) {
         console.error('Error fetching data:', error);
-        setError(error.message);
+        // setError(error.message);
       }
       setIsLoading(false);
     }
