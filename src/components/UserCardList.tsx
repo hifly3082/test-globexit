@@ -8,7 +8,11 @@ export default function UserCardList({ openModal }) {
     <div className='cardlist-container'>
       <div className='card-list'>
         {users?.map((user) => (
-          <UserCard user={user} key={user.name} openModal={openModal} />
+          <UserCard
+            user={user}
+            key={user.name}
+            openModal={() => openModal(user)}
+          />
         ))}
       </div>
     </div>
