@@ -15,14 +15,17 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--color-background);
-  padding: 4rem 5rem;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .app-layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  max-width: 120rem;
+  max-width: 74rem;
   margin: 0 auto;
 }
 
@@ -32,8 +35,7 @@ body {
   position: sticky;
   top: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 4rem;
 }
 
 .search-bar {
@@ -41,19 +43,19 @@ body {
   padding: 0.75rem 1.5rem;
   margin-bottom: 2.4rem;
   font-size: 1.2rem;
-  border-radius: 1.5rem;
-  transition: all 0.3s;
+  border-radius: 24px;
   color: var(--color-text);
   flex-grow: 1;
+  position: relative;
 }
 
 .button {
+  position: absolute;
   background: none;
   border: none;
   cursor: pointer;
-  position: relative;
-  right: 3rem;
-  top: -1.2rem;
+  right: 32px;
+  top: 12px;
 }
 
 .icon {
@@ -63,14 +65,18 @@ body {
 
 /* =========== USER CARD LIST =========== */
 
-li {
-  list-style: none;
+.cardlist-container {
+  display: flex;
+  justify-content: center;
 }
 
 .card-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 12px;
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 /* =========== USER CARD  =========== */
@@ -80,10 +86,12 @@ li {
   height: 19.625rem;
   background-color: #fff;
   border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 1.6rem;
   text-align: left;
   cursor: pointer;
+
+  margin: 1rem;
 
   display: flex;
   flex-direction: column;
@@ -112,4 +120,47 @@ li {
   line-height: 1.4rem;
   color: var(--color-text-light);
   padding-left: 1rem;
+}
+
+/* =========== MODAL  =========== */
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal {
+  width: 468px;
+  height: 500px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border-radius: 16px;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--color-text);
 }
