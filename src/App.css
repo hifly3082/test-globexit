@@ -122,6 +122,40 @@ body::-webkit-scrollbar {
   padding-left: 1rem;
 }
 
+/* =========== USER INFO  =========== */
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.user-info h2 {
+  position: relative;
+  top: -3.6rem;
+}
+
+.user-info-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
+  padding-bottom: 10px;
+}
+
+.user-info-row > span {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.user-info-row > p {
+  color: var(--color-text-light);
+}
+
+.user-info-row.wide {
+  padding-top: 1.4rem;
+  grid-template-columns: 1fr;
+}
+
 /* =========== MODAL  =========== */
 
 .modal-background {
@@ -148,8 +182,6 @@ body::-webkit-scrollbar {
 
 .modal-content {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100%;
 }
