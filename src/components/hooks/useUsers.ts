@@ -1,39 +1,45 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
+import { User } from '../../types'
 
-const BASE_URL = 'http://127.0.0.1:3000/';
+const BASE_URL = 'http://127.0.0.1:3000/'
+export interface UserData {
+  users: User[]
+  isLoading: boolean
+  error: string
+}
 
-export function useUsers() {
-  const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+export function useUsers(query: string): UserData {
+  const [users, setUsers] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     async function fetchData() {
       try {
-        setIsLoading(true);
-        setError('');
+        setIsLoading(true)
+        setError('')
 
-        const response = await fetch(BASE_URL);
+        const response = await fetch(BASE_URL + (query ? `?term=${query}` : ''))
 
         if (!response.ok) {
-          throw new Error('Something went wrong with fetching data');
+          throw new Error('Something went wrong with fetching data')
         }
 
-        const data = await response.json();
+        const data = await response.json()
 
-        if (data.Response === 'False') throw new Error('Users not found');
+        if (data.Response === 'False') throw new Error('Users not found')
 
-        setUsers(data);
-        setError('');
+        setUsers(data)
+        setError('')
       } catch (error) {
-        console.error('Error fetching data:', error);
-        // setError(error.message);
+        console.error('Error fetching data:', error)
+        setError(error.message)
       }
-      setIsLoading(false);
+      setIsLoading(false)
     }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [query])
 
-  return { users, isLoading, error };
+  return { users, isLoading, error }
 }

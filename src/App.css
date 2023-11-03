@@ -77,6 +77,7 @@ body::-webkit-scrollbar {
   overflow: auto;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 /* =========== USER CARD  =========== */
@@ -132,7 +133,7 @@ body::-webkit-scrollbar {
 
 .user-info h2 {
   position: relative;
-  top: -3.6rem;
+  top: -3.5rem;
 }
 
 .user-info-row {
