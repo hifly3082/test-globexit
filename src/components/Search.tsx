@@ -1,6 +1,11 @@
 import searchIcon from '../assets/search.png';
 
-export default function Search({ query, setQuery }) {
+export interface SearchProps {
+  query: string;
+  setQuery: (query: string) => void;
+}
+
+export const Search: React.FC<SearchProps> = ({ query, setQuery }) => {
   return (
     <div className='search-container'>
       <input
@@ -14,4 +19,6 @@ export default function Search({ query, setQuery }) {
       </button>
     </div>
   );
-}
+};
+
+export default Search;

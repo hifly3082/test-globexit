@@ -1,17 +1,13 @@
-import { useUsers } from './hooks/useUsers';
+import { User } from '../types';
 
-export default function UserInfo({ user }) {
-  const { users } = useUsers();
+export interface UserInfoProps {
+  user: User;
+}
 
-  const userInfo = users.find((u) => u.name === user.name);
+export const UserInfo: React.FC<UserInfoProps> = ({ user }) => {
+  const { name, phone, email, position_name, department, hire_date } = user;
 
-  if (!userInfo) {
-    return <div>User not found</div>;
-  }
-
-  const { name, phone, email, position_name, department, hire_date } = userInfo;
-
-  return (
+  return user ? (
     <div className='user-info'>
       <h2>{name}</h2>
       <div className='user-info-table'>
@@ -46,5 +42,9 @@ export default function UserInfo({ user }) {
         </p>
       </div>
     </div>
+  ) : (
+    <div>User not found</div>
   );
-}
+};
+
+export default UserInfo;
