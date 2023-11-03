@@ -1,11 +1,15 @@
 import searchIcon from '../assets/search.png'
 
 export interface SearchProps {
-  query: string
+  query?: string
   setQuery: (query: string) => void
 }
 
 const Search: React.FC<SearchProps> = ({ query, setQuery }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value)
+  }
+
   return (
     <header className='header'>
       <div className='search-container'>
@@ -13,7 +17,7 @@ const Search: React.FC<SearchProps> = ({ query, setQuery }) => {
           className='search-bar'
           type='text'
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={handleChange}
         />
         <button className='button'>
           <img className='icon' src={searchIcon} alt='search' />

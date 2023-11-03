@@ -44,7 +44,9 @@ const UserInfo: React.FC<UserInfoProps> = ({ user }) => {
       </div>
     </div>
   ) : (
-    <div>User not found</div>
+    <div className='user-info'>
+      <h2>User not found</h2>
+    </div>
   )
 }
 

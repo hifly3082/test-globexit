@@ -2,11 +2,15 @@ import { User } from '../types'
 import UserCard from './UserCard'
 
 interface UserCardListProps {
-  openModal: (user: User) => void
+  onOpenModal: (user: User) => void
   users: User[]
 }
 
-const UserCardList: React.FC<UserCardListProps> = ({ openModal, users }) => {
+const UserCardList: React.FC<UserCardListProps> = ({ onOpenModal, users }) => {
+  const handleOpenModal = (user: User) => () => {
+    onOpenModal(user)
+  }
+
   return (
     <div className='cardlist-container'>
       <div className='card-list'>
@@ -14,7 +18,7 @@ const UserCardList: React.FC<UserCardListProps> = ({ openModal, users }) => {
           <UserCard
             user={user}
             key={user.name}
-            openModal={() => openModal(user)}
+            openModal={handleOpenModal(user)}
           />
         ))}
       </div>
