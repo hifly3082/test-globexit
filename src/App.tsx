@@ -1,15 +1,14 @@
-import './App.css'
-
 import { useState } from 'react'
-
-import { User } from './types'
 
 import AppLayout from './components/AppLayout'
 import Search from './components/Search'
 import UserCardList from './components/UserCardList'
 import Modal from './components/Modal'
 import UserInfo from './components/UserInfo'
-import { useDebounce, useUsers } from './components/hooks'
+import { useDebounce, useUsers } from './hooks'
+import { User } from './types'
+
+import './App.css'
 
 function App() {
   const [query, setQuery] = useState('')
@@ -30,7 +29,7 @@ function App() {
   return (
     <AppLayout>
       <Search query={query} setQuery={setQuery} />
-      <UserCardList openModal={handleOpenModal} users={users} />
+      <UserCardList onOpenModal={handleOpenModal} users={users} />
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         <UserInfo user={selectedUser} />
       </Modal>
