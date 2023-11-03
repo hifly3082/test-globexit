@@ -1,24 +1,26 @@
-import searchIcon from '../assets/search.png';
+import searchIcon from '../assets/search.png'
 
 export interface SearchProps {
-  query: string;
-  setQuery: (query: string) => void;
+  query: string
+  setQuery: (query: string) => void
 }
 
-export const Search: React.FC<SearchProps> = ({ query, setQuery }) => {
+const Search: React.FC<SearchProps> = ({ query, setQuery }) => {
   return (
-    <div className='search-container'>
-      <input
-        className='search-bar'
-        type='text'
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button className='button'>
-        <img className='icon' src={searchIcon} alt='search' />
-      </button>
-    </div>
-  );
-};
+    <header className='header'>
+      <div className='search-container'>
+        <input
+          className='search-bar'
+          type='text'
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button className='button'>
+          <img className='icon' src={searchIcon} alt='search' />
+        </button>
+      </div>
+    </header>
+  )
+}
 
-export default Search;
+export default Search
