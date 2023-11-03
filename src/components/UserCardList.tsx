@@ -1,8 +1,12 @@
-import UserCard from './UserCard';
-import { useUsers } from './hooks/useUsers';
+import { User } from '../types'
+import { UserCard } from './UserCard'
+import { useUsers } from './hooks/useUsers'
 
-export default function UserCardList({ openModal }) {
-  const { users } = useUsers();
+interface UserCardListProps {
+  openModal: (user: User) => void
+}
+export const UserCardList: React.FC<UserCardListProps> = ({ openModal }) => {
+  const { users } = useUsers()
 
   return (
     <div className='cardlist-container'>
@@ -16,5 +20,7 @@ export default function UserCardList({ openModal }) {
         ))}
       </div>
     </div>
-  );
+  )
 }
+
+export default UserCardList
