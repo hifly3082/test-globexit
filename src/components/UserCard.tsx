@@ -7,7 +7,7 @@ export interface UserCardProps {
   openModal: () => void
 }
 
-export const UserCard: React.FC<UserCardProps> = ({ user, openModal }) => {
+const UserCard: React.FC<UserCardProps> = ({ user, openModal }) => {
   const { name, phone, email } = user
 
   return (
@@ -28,3 +28,5 @@ export const UserCard: React.FC<UserCardProps> = ({ user, openModal }) => {
     </div>
   )
 }
+
+export default UserCard

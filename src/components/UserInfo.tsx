@@ -1,11 +1,12 @@
-import { User } from '../types';
+import { User } from '../types'
 
 export interface UserInfoProps {
-  user: User;
+  user?: User
 }
 
-export const UserInfo: React.FC<UserInfoProps> = ({ user }) => {
-  const { name, phone, email, position_name, department, hire_date } = user;
+const UserInfo: React.FC<UserInfoProps> = ({ user }) => {
+  const { name, phone, email, position_name, department, hire_date } =
+    user || {}
 
   return user ? (
     <div className='user-info'>
@@ -44,7 +45,7 @@ export const UserInfo: React.FC<UserInfoProps> = ({ user }) => {
     </div>
   ) : (
     <div>User not found</div>
-  );
-};
+  )
+}
 
-export default UserInfo;
+export default UserInfo

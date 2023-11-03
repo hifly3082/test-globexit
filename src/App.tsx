@@ -9,15 +9,14 @@ import Search from './components/Search'
 import UserCardList from './components/UserCardList'
 import Modal from './components/Modal'
 import UserInfo from './components/UserInfo'
-import { useUsers } from './components/hooks/useUsers'
-import { useDebounce } from './components/hooks/useDebounce'
+import { useDebounce, useUsers } from './components/hooks'
 
 function App() {
   const [query, setQuery] = useState('')
   const [isModalOpen, setModalOpen] = useState(false)
-  const [selectedUser, setSelectedUser] = useState<User | null>(null)
+  const [selectedUser, setSelectedUser] = useState<User>()
   const debouncedQuery = useDebounce(query)
-  const { users, isLoading, error } = useUsers(debouncedQuery)
+  const { users } = useUsers(debouncedQuery)
 
   const handleOpenModal = (user: User) => {
     setSelectedUser(user)
@@ -25,7 +24,6 @@ function App() {
   }
 
   const handleCloseModal = () => {
-    setSelectedUser(null)
     setModalOpen(!isModalOpen)
   }
 
@@ -34,7 +32,7 @@ function App() {
       <Search query={query} setQuery={setQuery} />
       <UserCardList openModal={handleOpenModal} users={users} />
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        {selectedUser && <UserInfo user={selectedUser} />}
+        <UserInfo user={selectedUser} />
       </Modal>
     </AppLayout>
   )
