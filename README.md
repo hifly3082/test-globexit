@@ -1,40 +1,50 @@
-## Задание
+## User list app
 
-- Сверстать по макету отчет. В отчете вывести список юзеров.
-- На странице есть поиск по юзерам. При вводе в строке поиска список фильтруется. При клике по карточке выводить в modal дополнительную информацию по юзеру. При нажатии вне окна с информацией или крестик окно закрывается.
-- Список юзеров получаем с бэкенда. Для этого нужно установить и запустить локально сервер. Ссылка будет такой [http://127.0.0.1:3000](http://127.0.0.1:3000/). Для получения всего списка отправляем запрос без параметров, для получения совпадений ФИО со строкой ввода добавляем параметры query (term), например [http://127.0.0.1:3000?term=fer](http://127.0.0.1:3000/?term=fer)
+### Requirements
 
-## Решение
+- Create a report layout that displays a list of users. You can use sample user data for testing.
 
-### Технологии
+- Implement a user search feature that filters the list of users based on the input provided by the user.
 
-- Vite: версия 4.4.5
-- React: версия 18.2.0
-- TypeScript: версия 5.0.2
+- Develop a modal component that displays additional user information when a user card is clicked. The modal should close when the user clicks outside of it or on a close button.
 
-### Установка и запуск
+- Set up a local backend server using the provided link: http://127.0.0.1:3000. Fetch the list of users from the backend and display it in your application.
 
-1. Убедитесь, что у вас установлен Node.js и npm.
-2. Клонируйте репозиторий проекта или создайте новый Vite проект.
+- Implement the ability to search for users on the backend by sending requests with query parameters (term) based on the user's input.
+
+- Ensure that the application is responsive and user-friendly.
+
+## Solution
+
+### Tech stack
+
+- Vite 4.4.5
+- React 18.2.0
+- TypeScript 5.0.2
+
+### Installation and setup
+
+1. Make sure you have Node.js and npm installed.
+2. Clone the project repository or create a new Vite project:
 
 ```bash
 git clone https://github.com/hifly3082/user-list-app.git
 cd user-list-app
 ```
 
-3. Перейдите в корневую директорию проекта.
-4. Установите зависимости с помощью команды:
+3. Navigate to the project's root directory.
+4. Install the dependencies using the following command:
 
 ```bash
 npm install
 ```
 
-### Использование
+### Usage
 
-Для запуска приложения
+To run the application, use the following command:
 
 ```bash
 npm run dev
 ```
 
-Также необходимо запустить [бэкэнд-сервер](https://github.com/hifly3082/backend-server).
+You also need to start the [backend-server](https://github.com/hifly3082/backend-server) to get access to sample user data.
